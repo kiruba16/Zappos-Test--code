@@ -12,6 +12,7 @@ test('launch browser', async ({ page }) => {
 
     // Press Enter to search
     await page.locator('input[name="q"]').press('Enter');
+     await page.locator('input[name="q"]').press('Enter');
 
 )
 
