@@ -7,8 +7,8 @@ test(" launch flipkart ",async({page})=>{
   const currentURL = page.url();
  console.log(currentURL);
   await page.goto("https://www.instagram.com")
-  const instaTitle = await page.title();
-  console.log(instaTitle);
+  ////const instaTitle = await page.title();
+  ///console.log(instaTitle);
   const instaURL = page.url();
    console.log(instaURL);
    await page.goBack()
