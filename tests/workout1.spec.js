@@ -12,6 +12,7 @@ test(" launch flipkart ",async({page})=>{
   const instaURL = page.url();
    console.log(instaURL);
    await page.goBack()
+   await page.goBack()
 
 
 })
