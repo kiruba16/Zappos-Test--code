@@ -42,17 +42,14 @@ test('Convert PDF to Word and download automatically', async ({ page }) => {
 
     // 6. If the site does not auto-download, click the Download button when it appears
     const downloadBtn = page
-        .getByRole('link', { name: /download word/i })
-        .or(page.getByRole('button', { name: /download word/i }))
-        .or(page.locator('#pickfiles'));
+        // .getByRole('link', { name: /download word/i })
+        // .or(page.getByRole('button', { name: /download word/i }))
+        // .or(page.locator('#pickfiles'));
     await downloadBtn.first().click({ timeout: 180000 }).catch(() => {
         // auto-download may already have started, so ignore this
     });
 
-    // 7. Receive the file and save it
-    const download = await downloadPromise;
-    const savePath = path.join(DOWNLOAD_DIR, download.suggestedFilename());
-    await download.saveAs(savePath);
+
 
     // 8. Verify
     expect(fs.existsSync(savePath)).toBeTruthy();
