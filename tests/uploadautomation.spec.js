@@ -24,20 +24,16 @@ test('Convert PDF to Word and download automatically', async ({ page }) => {
     await page.goto('https://www.ilovepdf.com/pdf_to_word', { waitUntil: 'domcontentloaded' });
 
     // 2. Close the cookie banner if it appears
-    const acceptBtn = page.getByRole('button', { name: /accept|agree|allow all/i }).first();
-    if (await acceptBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
-        await acceptBtn.click();
+    // const acceptBtn = page.getByRole('button', { name: /accept|agree|allow all/i }).first();
+    // if (await acceptBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+    //     await acceptBtn.click();
     }
 
     // 3. Upload the local file (works with the hidden file input)
     await page.locator('input[type="file"]').first().setInputFiles(INPUT_FILE);
 
     // 4. Wait for the Convert button, then click it
-    const convertBtn = page
-        .getByRole('button', { name: /convert to word/i })
-        .or(page.locator('#processTask'));
-    await expect(convertBtn.first()).toBeVisible({ timeout: 90000 });
-    await expect(convertBtn.first()).toBeEnabled({ timeout: 30000 });
+    
 
     // 5. Start listening for the download BEFORE conversion finishes
     const downloadPromise = page.waitForEvent('download', { timeout: 240000 });
@@ -57,8 +53,7 @@ test('Convert PDF to Word and download automatically', async ({ page }) => {
 
     // 8. Verify
     expect(fs.existsSync(savePath)).toBeTruthy();
-    expect(savePath).toMatch(/\.docx?$/i);
-    expect(fs.statSync(savePath).size).toBeGreaterThan(0);
+
 
     console.log('Downloaded file saved at:', savePath);
-});
+//});

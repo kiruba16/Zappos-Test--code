@@ -5,7 +5,8 @@ test(" launch flipkart ",async({page})=>{
   const pageTitle = await page.title();
   console.log(pageTitle);
   const currentURL = page.url();
- console.log(currentURL);
+  //command 
+ ///console.log(currentURL);
   await page.goto("https://www.instagram.com")
   ////const instaTitle = await page.title();
   ///console.log(instaTitle);
