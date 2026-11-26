@@ -60,5 +60,7 @@ test('frame handling', async ({ page }) => {
    import {test} from "@playwright/test";
    test(" frame handing 3 ", async({page})=>{
     await page.goto("https://www.hyrtutorials.com/p/frames-practice.html");
-    const frame = page.frameLocator()
+    const frame = page.frameLocator("#frm1")
+    await frame.getByRole("id",{name:"selectnav1"}).click
+    
    })
