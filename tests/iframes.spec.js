@@ -40,23 +40,23 @@
 // });
 
 
-// import {test} from "@playwright/test"
-// test("test handling",async({page})=>{
-//     await page.goto("https://www.globalsqa.com/demo-site/frames-and-windows/#iFrame");
-//     const frame =page.frameLocator("#iframe");
-//     await frame.locator("//a[contains(text(), 'JMeter Training')]").click()
-//     await frame.getByRole("id",{name:"mobile_menu_toggler"}).click()
+import {test} from "@playwright/test"
+test("test handling",async({page})=>{
+    await page.goto("https://www.globalsqa.com/demo-site/frames-and-windows/#iFrame");
+    const frame =page.frameLocator("#iframe");
+    await frame.locator("//a[contains(text(), 'JMeter Training')]").click()
+    await frame.getByRole("id",{name:"mobile_menu_toggler"}).click()
 
-// })
-// import { test, expect } from '@playwright/test';
+})
+import { test, expect } from '@playwright/test';
 
-// test('frame handling', async ({ page }) => {
-//   await page.goto('https://www.globalsqa.com/demo-site/frames-and-windows/#iFrame');
-//   const frame = page.frameLocator('iframe[name="globalSqa"]');
-//   await frame.getByRole('link', { name: 'JMeter Training' }).first().click();
-//   await frame.locator('#mobile_menu_toggler').click();
-//   await frame.getByRole('link', { name: 'About', exact: true }).first().click();
-// });
+test('frame handling', async ({ page }) => {
+  await page.goto('https://www.globalsqa.com/demo-site/frames-and-windows/#iFrame');
+  const frame = page.frameLocator('iframe[name="globalSqa"]');
+  await frame.getByRole('link', { name: 'JMeter Training' }).first().click();
+  await frame.locator('#mobile_menu_toggler').click();
+  await frame.getByRole('link', { name: 'About', exact: true }).first().click();
+});
    import {test} from "@playwright/test";
    test(" frame handing 3 ", async({page})=>{
     await page.goto("https://www.hyrtutorials.com/p/frames-practice.html");
